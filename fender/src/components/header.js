@@ -24,7 +24,7 @@ const Header = () => {
           <Link to="/">Home</Link>
         </p>
         <p style={{ margin: 0 }}>
-          <Link to="/products">Guitars</Link>
+          <Link to="/guitars">Guitars</Link>
         </p>
       </div>
     </header>
