@@ -3,17 +3,43 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../components/layout"
 
-const GuitarPage = ({ data }) => {
-  const image = getImage(data.wpGuitar.guitarFields.image.localFile)
-  console.log(data)
+const GuitarPage = ({ data: {wpGuitar: {guitarFields: guitar}}}) => {
+  const image = getImage(guitar.image.localFile)
   return (
     <Layout>
       <main>
-        <h1>{data.wpGuitar.guitarFields.specifications.nameModel}</h1>
+        <h1>{guitar.specifications.nameModel}</h1>
+        <div>
+          <h3>Built in</h3>
+          <p>{guitar.specifications.builtIn}</p>
+        </div>        
+        <div>
+          <h3>Wood Type Body</h3>
+          <p>{guitar.specifications.woodBody}</p>
+        </div>
+        <div>
+          <h3>Wood Type Neck</h3>
+          <p>{guitar.specifications.woodNeck}</p>
+        </div>
+        <div>
+          <h3>Wood Type Fretboard</h3>
+          <p>{guitar.specifications.woodFretboard}</p>
+        </div>
+        <div>
+          <h3>Colour</h3>
+          <p>{guitar.specifications.colour}</p>
+        </div>
+        <div>
+          <h3>Paint Type</h3>
+          <p>{guitar.specifications.typeOfPaint}</p>
+        </div>
+        <div>
+          <h3>Pickups</h3>
+          <p>{guitar.specifications.pickups}</p>
+        </div>
         <GatsbyImage
           image={image}
-          alt={data.wpGuitar.guitarFields.image.altText}
-          style={{ height: 100 }}
+          alt={guitar.image.altText}
         />
       </main>
     </Layout>
@@ -38,7 +64,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData(placeholder: BLURRED, height: 200, transformOptions: {fit: INSIDE})
             }
           }
           altText
