@@ -1,6 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import {container, title, navContainer, link} from './header.module.css'
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -15,16 +16,16 @@ const Header = () => {
   `)
 
   return (
-    <header>
-      <div>
+    <header className={container}>
+      <div className={title}>
         {data.site.siteMetadata.title}
       </div>
-      <div>
+      <div className={navContainer}>
         <p style={{ margin: 0 }}>
-          <Link to="/">Home</Link>
+          <Link to="/" className={link}>Home</Link>
         </p>
         <p style={{ margin: 0 }}>
-          <Link to="/guitars">Guitars</Link>
+          <Link to="/guitars" className={link}>Guitars</Link>
         </p>
       </div>
     </header>

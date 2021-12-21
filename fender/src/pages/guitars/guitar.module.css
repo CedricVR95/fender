@@ -1,0 +1,57 @@
+.outerContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerContainer {
+    width: 95%;
+    display: grid;
+    grid-template-areas: 
+    " name name name name "
+    " image image image image "
+    " builtIn colour paint pickups"
+    " body neck fret . "    ;
+    justify-content: space-around;
+}
+
+.name {
+    grid-area: name;
+    font-size: 5rem;
+    text-align: center;
+}
+.builtIn {
+    grid-area: builtIn;
+    font-size: 2rem;
+}
+.woodBody {
+    grid-area: body;
+    font-size: 2rem;
+}
+.woodNeck {
+    grid-area: neck;
+    font-size: 2rem;
+}
+.woodFret {
+    grid-area: fret;
+    font-size: 2rem;
+}
+.colour {
+    grid-area: colour;
+    font-size: 2rem;
+}
+.paint {
+    grid-area: paint;
+    font-size: 2rem;
+}
+.pickups {
+    grid-area: pickups;
+    font-size: 2rem;
+    /* width: 50%; */
+}
+.guitarImage {
+    grid-area: image;
+    /* align-self: center; */
+    justify-self: center;
+}

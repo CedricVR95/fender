@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.title{
+    font-size: 2rem;
+    margin-left: 1rem;
+    color:#E9A042;
+}
+
+.navContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 10vw;
+    margin-right:1rem;
+}
+
+.link{
+    text-decoration: none;
+    color:#E9A042;
+    font-size: 1.5rem;
+    transition: 300ms;
+}
+
+.link:hover{
+    text-decoration: none;
+    color:white;
+    font-size: 1.6rem;
+}
