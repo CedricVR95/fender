@@ -23,31 +23,31 @@
 }
 .builtIn {
     grid-area: builtIn;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .woodBody {
     grid-area: body;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .woodNeck {
     grid-area: neck;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .woodFret {
     grid-area: fret;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .colour {
     grid-area: colour;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .paint {
     grid-area: paint;
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 .pickups {
     grid-area: pickups;
-    font-size: 2rem;
+    font-size: 1.9rem;
     /* width: 50%; */
 }
 .guitarImage {

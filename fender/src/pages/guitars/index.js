@@ -10,8 +10,7 @@ import {
   guitarsContainer,
   guitarContainer,
   guitarName,
-  guitarImage,
-  imageDescription
+  imageDescription,
 } from "./index.module.css"
 
 const GuitarsPage = ({ data }) => {
@@ -22,31 +21,28 @@ const GuitarsPage = ({ data }) => {
       <main className={outerContainer}>
         <div className={innerContainer}>
           <div className={imageDescription}>
-            <h1 className={title}>
-              {data.wpPage.guitarsPageFields.description}
-            </h1>
-            <GatsbyImage
+          <GatsbyImage
               image={image}
               alt={data.wpPage.guitarsPageFields.bannerImage.altText}
               className={bannerImage}
             />
+            <h1 className={title}>
+              {data.wpPage.guitarsPageFields.description}
+            </h1>
           </div>
           <div className={guitarsContainer}>
             {data.allWpGuitar.nodes.map(guitar => {
               const image = getImage(guitar.guitarFields.image.localFile)
               return (
                 <div key={guitar.id} className={guitarContainer}>
-                  <p>
                     <Link to={`/guitars/${guitar.slug}`} className={guitarName}>
                       {guitar.guitarFields.specifications.builtIn}{" "}
                       {guitar.guitarFields.specifications.nameModel}
+                      <GatsbyImage
+                        image={image}
+                        alt={guitar.guitarFields.image.altText}
+                      />
                     </Link>
-                  </p>
-                  <GatsbyImage
-                    image={image}
-                    alt={guitar.guitarFields.image.altText}
-                    class={guitarImage}
-                  />
                 </div>
               )
             })}
@@ -67,8 +63,9 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData(
                 placeholder: BLURRED
-                height: 300
-                transformOptions: { fit: INSIDE }
+                
+                quality: 100
+                
               )
             }
           }

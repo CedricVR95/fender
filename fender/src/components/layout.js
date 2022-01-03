@@ -6,13 +6,13 @@ import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className="container">
       <Header/>
       <div>
         <main>{children}</main>        
       </div>
       <Footer/>
-    </>
+    </div>
   )
 }
 

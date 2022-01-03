@@ -12,9 +12,8 @@ import {
   featuredDescription,
   featuredProductContainer,
   featuredProductDescription,
-  featuredProductImage,
   imageDescription,
-  featuredContainer
+  featuredContainer,
 } from "./index.module.css"
 
 const IndexPage = ({
@@ -29,12 +28,12 @@ const IndexPage = ({
         <div className={innerContainer}>
           <h1 className={title}>{homeMeta.title}</h1>
           <div className={imageDescription}>
-            <h2 className={description}>{homeMeta.description}</h2>
             <GatsbyImage
               image={image}
               alt={homeMeta.bannerImage.altText}
               className={bannerImage}
             />
+            <h2 className={description}>{homeMeta.description}</h2>
           </div>
           <div className={featuredContainer}>
             <h3 className={featuredTitle}>{homeMeta.featuredProducts.name}</h3>
@@ -42,23 +41,22 @@ const IndexPage = ({
               {homeMeta.featuredProducts.description}
             </p>
             <div className={featuredProductContainer}>
-            {homeMeta.featuredProducts.product.map(guitar => {
-              const image = getImage(guitar.guitarFields.image.localFile)
-              return (
-                <Link key={guitar.id} to={`/guitars/${guitar.slug}`}>
-                  <h4 className={featuredProductDescription}>
-                    {guitar.guitarFields.specifications.builtIn}{" "}
-                    {guitar.guitarFields.specifications.colour}{" "}
-                    {guitar.guitarFields.specifications.nameModel}
-                  </h4>
-                  <GatsbyImage
-                    className={featuredProductImage}
-                    image={image}
-                    alt={guitar.guitarFields.image.altText}
-                  />
-                </Link>
-              )
-            })}
+              {homeMeta.featuredProducts.product.map(guitar => {
+                const image = getImage(guitar.guitarFields.image.localFile)
+                return (
+                  <Link key={guitar.id} to={`/guitars/${guitar.slug}`}>
+                    <h4 className={featuredProductDescription}>
+                      {guitar.guitarFields.specifications.builtIn}{" "}
+                      {guitar.guitarFields.specifications.colour}{" "}
+                      {guitar.guitarFields.specifications.nameModel}
+                    </h4>
+                    <GatsbyImage
+                      image={image}
+                      alt={guitar.guitarFields.image.altText}
+                    />
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -91,7 +89,8 @@ export const query = graphql`
                     childImageSharp {
                       gatsbyImageData(
                         placeholder: BLURRED
-                        height: 200
+                        height: 800
+                        quality: 100
                         width: 400
                         transformOptions: { fit: INSIDE }
                       )
@@ -108,7 +107,7 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData(
                 placeholder: BLURRED
-                height: 300
+                quality:100
                 transformOptions: { fit: INSIDE }
               )
             }
