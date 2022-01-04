@@ -13,13 +13,7 @@
 }
 
 .imageDescription{
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;*/
     width: 100%;
-    /*
-    justify-content: space-evenly; */
-
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
